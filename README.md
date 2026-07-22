@@ -1,176 +1,238 @@
-# MentorConnect - Plateforme de Mentorat Professionnel
+# MentorConnect - Professional Mentorship Platform
 
-Application web complète de mentorat permettant aux étudiants de se connecter avec des mentors professionnels.
+> **Note:** This repository is a **fork** of the original project developed during **McHacks 2025**. MentorConnect was built by a **team of four** during the hackathon. This fork is intended to showcase my individual contributions while preserving the original collaborative work.
 
-## 🎯 Fonctionnalités Principales
+## 🎯 Overview
 
-- **Authentification sécurisée** (JWT) avec rôles Étudiant/Mentor
-- **Découverte de mentors** avec système de recherche et filtres avancés
-- **Messagerie en temps réel** (Socket.io)
-- **Système de réservation** de sessions (virtuelles et en personne)
-- **Stages d'un jour** proposés par les mentors
-- **Recommandations intelligentes** basées sur les intérêts
-- **Tableau de bord personnalisé** pour chaque utilisateur
-- **Notifications en temps réel**
+MentorConnect is a full-stack web application that connects students with professional mentors through an intuitive platform designed to facilitate networking, mentorship, and career development.
 
-## 🚀 Technologies Utilisées
+## ✨ Key Features
 
-### Backend
-- Node.js & Express
-- MongoDB Atlas (Base de données)
-- Socket.io (Temps réel)
-- JWT (Authentification)
-- Bcrypt (Sécurité)
+- Secure authentication using JWT with Student and Mentor roles
+- Mentor discovery with advanced search and filtering
+- Real-time messaging powered by Socket.io
+- Mentorship session booking (virtual and in-person)
+- One-day job shadowing opportunities offered by mentors
+- Smart recommendations based on user interests
+- Personalized dashboards for each user
+- Real-time notifications
 
-### Frontend
+---
+
+# 🚀 Tech Stack
+
+## Backend
+- Node.js
+- Express.js
+- MongoDB Atlas
+- Socket.io
+- JWT Authentication
+- Bcrypt
+
+## Frontend
 - React 18
 - React Router v6
-- Axios (API calls)
+- Axios
 - Socket.io Client
 - Tailwind CSS
 
-## 📦 Installation
+---
 
-### 1. Cloner le projet
+# 📦 Installation
+
+## 1. Clone the repository
+
 ```bash
+git clone <repository-url>
 cd Mchacks
 ```
 
-### 2. Installer le backend
+## 2. Install backend dependencies
+
 ```bash
 cd backend
 npm install
 ```
 
-### 3. Installer le frontend
+## 3. Install frontend dependencies
+
 ```bash
 cd ../frontend
 npm install
 ```
 
-## ⚙️ Configuration
+---
 
-Les fichiers `.env` sont déjà configurés avec les informations MongoDB Atlas fournies.
+# ⚙️ Configuration
 
-**Backend** (backend/.env):
-- MongoDB URI configuré
-- JWT Secret défini
-- Port 5000
+Before running the application, create the required `.env` files in both the **backend** and **frontend** directories.
 
-**Frontend** (frontend/.env):
-- API URL: http://localhost:5000/api
-- Socket URL: http://localhost:5000
+### Backend (`backend/.env`)
 
-## 🏃 Démarrage de l'application
+```env
+MONGODB_URI=your_mongodb_connection_string
+JWT_SECRET=your_jwt_secret
+PORT=5000
+```
 
-### Démarrer le backend (Terminal 1)
+### Frontend (`frontend/.env`)
+
+```env
+REACT_APP_API_URL=http://localhost:5000/api
+REACT_APP_SOCKET_URL=http://localhost:5000
+```
+
+> **Note:** Environment files (`.env`) are intentionally **not included** in this repository for security reasons. You will need to provide your own MongoDB connection string and JWT secret before running the project.
+
+---
+
+# ▶️ Running the Application
+
+## Start the backend (Terminal 1)
+
 ```bash
 cd backend
 npm run dev
 ```
-Le serveur démarre sur http://localhost:5000
 
-### Démarrer le frontend (Terminal 2)
+The backend will be available at:
+
+```
+http://localhost:5000
+```
+
+## Start the frontend (Terminal 2)
+
 ```bash
 cd frontend
 npm start
 ```
-L'application s'ouvre sur http://localhost:3000
 
-## 👥 Utilisation
+The application will open at:
 
-### Pour les Étudiants
-1. Créer un compte étudiant
-2. Compléter son profil avec centres d'intérêt
-3. Découvrir et se connecter avec des mentors
-4. Échanger par messagerie
-5. Réserver des sessions de mentorat
-6. Postuler aux stages d'un jour
+```
+http://localhost:3000
+```
 
-### Pour les Mentors
-1. Créer un compte mentor
-2. Compléter son profil professionnel
-3. Définir ses préférences de communication
-4. Gérer ses disponibilités
-5. Accepter les demandes de connexion
-6. Proposer des stages d'un jour (optionnel)
+---
 
-## 📱 Pages de l'Application
+# 👥 User Guide
 
-- **/** - Page d'accueil
-- **/register** - Inscription
-- **/login** - Connexion
-- **/dashboard** - Tableau de bord personnalisé
-- **/discover** - Découvrir des mentors
-- **/messages** - Messagerie en temps réel
-- **/internships** - Stages d'un jour
-- **/profile** - Gestion du profil
+## Students
 
-## 🔐 Connexion MongoDB
+1. Create a student account.
+2. Complete your profile with your interests.
+3. Browse and connect with mentors.
+4. Chat with mentors in real time.
+5. Schedule mentorship sessions.
+6. Apply for one-day job shadowing opportunities.
 
-L'application est connectée à MongoDB Atlas avec les credentials fournis:
-- **Database**: McHacks cluster
-- **User**: samybenchaar_db_user
-- Connexion automatique au démarrage du serveur
+## Mentors
 
-## 🛠️ Structure du Projet
+1. Create a mentor account.
+2. Complete your professional profile.
+3. Set communication preferences.
+4. Manage your availability.
+5. Accept mentorship requests.
+6. Offer optional one-day job shadowing opportunities.
+
+---
+
+# 📱 Application Pages
+
+| Route | Description |
+|--------|-------------|
+| `/` | Home page |
+| `/register` | User registration |
+| `/login` | User login |
+| `/dashboard` | Personalized dashboard |
+| `/discover` | Browse mentors |
+| `/messages` | Real-time messaging |
+| `/internships` | Job shadowing opportunities |
+| `/profile` | User profile management |
+
+---
+
+# 🗂 Project Structure
 
 ```
 Mchacks/
 ├── backend/
-│   ├── config/         # Configuration DB
-│   ├── models/         # Modèles Mongoose
-│   ├── routes/         # Routes API
-│   ├── controllers/    # Logique métier
-│   ├── middleware/     # Auth & Upload
-│   ├── utils/          # Utilitaires
-│   └── server.js       # Point d'entrée
+│   ├── config/         # Database configuration
+│   ├── models/         # Mongoose models
+│   ├── routes/         # API routes
+│   ├── controllers/    # Business logic
+│   ├── middleware/     # Authentication & uploads
+│   ├── utils/          # Utility functions
+│   └── server.js       # Backend entry point
 │
 └── frontend/
     ├── public/
     └── src/
-        ├── components/ # Composants React
-        ├── pages/      # Pages principales
-        ├── contexts/   # Auth & Socket
-        ├── services/   # API & Socket
-        └── App.jsx     # Application principale
+        ├── components/ # React components
+        ├── pages/      # Main pages
+        ├── contexts/   # Authentication & Socket contexts
+        ├── services/   # API & Socket services
+        └── App.jsx     # Frontend entry point
 ```
-
-## 🎨 Design
-
-- Design moderne et responsive
-- Utilisation de Tailwind CSS
-- Interface intuitive et accessible
-- Thème cohérent avec palette indigo/bleu
-
-## 📝 Notes pour le Hackathon
-
-- Tous les modèles de données sont prêts
-- API RESTful complète et fonctionnelle
-- Messagerie temps réel opérationnelle
-- Système de réservation implémenté
-- Prêt pour démonstration et tests
-
-## 🚨 Dépannage
-
-Si vous rencontrez des erreurs:
-
-1. Vérifier que MongoDB Atlas est accessible
-2. S'assurer que les ports 3000 et 5000 sont libres
-3. Vider le cache: `npm cache clean --force`
-4. Réinstaller les dépendances
-
-## 👨‍💻 Développement
-
-Pour le développement:
-- Le backend utilise `nodemon` pour le hot-reload
-- Le frontend utilise `react-scripts` avec hot-reload automatique
-- Les deux serveurs peuvent tourner simultanément
-
-## 🎓 Créé pour McHacks
-
-Application développée dans le cadre du hackathon McHacks 2025.
 
 ---
 
-**Bon hackathon! 🚀**
+# 🎨 UI & Design
+
+- Responsive interface
+- Modern UI built with Tailwind CSS
+- Accessible and user-friendly experience
+- Consistent blue/indigo design system
+
+---
+
+# 🏆 Hackathon Highlights
+
+During the hackathon, our team successfully implemented:
+
+- Complete RESTful API
+- Secure authentication system
+- Real-time messaging
+- Mentor discovery and recommendation features
+- Session booking system
+- Personalized dashboards
+- Full-stack integration ready for demonstration
+
+---
+
+# 🛠 Troubleshooting
+
+If you encounter issues:
+
+1. Make sure your MongoDB instance is running and accessible.
+2. Ensure ports **3000** and **5000** are available.
+3. Clear the npm cache:
+
+```bash
+npm cache clean --force
+```
+
+4. Reinstall dependencies:
+
+```bash
+npm install
+```
+
+---
+
+# 💻 Development
+
+- The backend uses **nodemon** for automatic reloading.
+- The frontend uses **React Scripts** with hot reloading.
+- Run the backend and frontend simultaneously in separate terminals during development.
+
+---
+
+# 🎓 Built for McHacks 2025
+
+MentorConnect was developed during **McHacks 2025**, one of Canada's largest hackathons. The project demonstrates the design and implementation of a full-stack mentorship platform built collaboratively by a team of four under hackathon time constraints.
+
+---
+
+**Happy hacking! 🚀**
